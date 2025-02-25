@@ -51,7 +51,7 @@ export class CdkPipelineStack extends Stack {
     const githubBranch = process.env.GITHUB_BRANCH || "main";
     const devAccountId = process.env.DEV_ACCOUNT_ID || "391970746680";
     const stgAccountId = process.env.STG_ACCOUNT_ID || "391970746680";
-    const prdAccountId = process.env.PRD_ACCOUNT_ID || "391970746680";
+    const prdAccountId = process.env.PRD_ACCOUNT_ID || "021007710463";
     const primaryRegion = /* process.env.PRIMARY_REGION || */ "ap-southeast-2";
     const secondaryRegion =
       /* process.env.SECONDARY_REGION || */ "ap-southeast-2";
@@ -82,8 +82,8 @@ export class CdkPipelineStack extends Stack {
     });
 
     devQaWave.addStage(dev);
-    devQaWave.addStage(qa);
-    devQaWave.addStage(stg);
+    //devQaWave.addStage(qa);
+    //devQaWave.addStage(stg);
 
     const primaryRdsRegionWave = pipeline.addWave("PROD-Deployment", {
       pre: [new ManualApprovalStep("ProdManualApproval")],
